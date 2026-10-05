@@ -1,0 +1,30 @@
+{
+  "name": "remake-electronics",
+  "version": "1.0.0",
+  "description": "REMAKE ELECTRONICS - Electronic component reuse and project recommendation platform",
+  "main": "backend/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.16"
+  },
+  "keywords": [
+    "electronics",
+    "reuse",
+    "e-waste",
+    "recommendation-engine",
+    "matching",
+    "hackathon",
+    "secondlife"
+  ],
+  "author": "REMAKE ELECTRONICS Team",
+  "license": "MIT"
+}

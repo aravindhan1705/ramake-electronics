@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REMAKE ELECTRONICS — Discover what your unused electronics can become</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Brand Logo & Name (Prompt Section 2 & 11) -->
+      <a href="#" class="brand-link" id="brand-home-link">
+        <div class="brand-logo-icon" aria-label="Logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+        </div>
+        <span class="brand-text">REMAKE ELECTRONICS</span>
+      </a>
+
+      <!-- Unauthenticated Navigation (Prompt Section 3 & 64) -->
+      <div class="nav-actions" id="nav-unauth-actions">
+        <button type="button" class="btn btn-outline-dark btn-sm" id="btn-open-login">
+          LOGIN
+        </button>
+      </div>
+
+      <!-- Authenticated Navigation (Prompt Section 11 & 12) -->
+      <div class="nav-actions" id="nav-auth-actions" style="display: none;">
+        <div class="user-menu-wrapper">
+          <span class="user-name-display" id="header-user-name">User Name</span>
+          <button type="button" class="three-dot-btn" id="btn-three-dot-menu" aria-label="Account Menu" title="Account Menu">
+            ⋮
+          </button>
+          
+          <!-- Three-Dot Dropdown Menu (Prompt Section 12) -->
+          <div class="three-dot-dropdown" id="three-dot-dropdown-menu">
+            <button type="button" class="dropdown-item" id="menu-item-home">
+              <span>🏠</span> Home
+            </button>
+            <button type="button" class="dropdown-item" id="menu-item-my-projects">
+              <span>📁</span> My Projects
+            </button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item danger" id="menu-item-logout">
+              <span>🚪</span> Log Out
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       VIEW 1: LANDING PAGE (Prompt Section 3 & 84)
+       ====================================================================== -->
+  <section class="view-section active" id="view-landing">
+    <div class="container">
+      <div class="landing-hero">
+        <div class="badge-tag">⚡ Hackathon PS3: SECONDLIFE Reuse Platform</div>
+        <h1 class="landing-title">REMAKE ELECTRONICS</h1>
+        <p class="landing-subtitle">
+          Discover what your unused electronics can become.<br />
+          Turn unused components into new possibilities.
+        </p>
+
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary btn-lg" id="btn-landing-get-started">
+            GET STARTED
+          </button>
+          <button type="button" class="btn btn-outline-dark btn-lg" id="btn-hero-login">
+            LOGIN
+          </button>
+        </div>
+
+        <!-- Concept Architecture Cards (Section 78) -->
+        <div class="landing-features-grid">
+          <div class="feature-card">
+            <div class="feature-step">01 • INVENTORY FIRST</div>
+            <h3 class="feature-title">List Your Components</h3>
+            <p class="feature-desc">Input what you already have at home or in your lab. Never start by buying everything from scratch.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-step">02 • INTELLIGENT MATCH</div>
+            <h3 class="feature-title">Matching Engine</h3>
+            <p class="feature-desc">Deterministic comparison against 18+ predefined electronics projects across IoT, automation, and sensors.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-step">03 • CLEAR SCORES</div>
+            <h3 class="feature-title">Feasibility & Shortages</h3>
+            <p class="feature-desc">See exact feasibility percentages and pinpoint precisely what missing components are required.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-step">04 • ECO IMPACT</div>
+            <h3 class="feature-title">Divert E-Waste</h3>
+            <p class="feature-desc">Quantify electronic components reused and avoid unnecessary landfill accumulation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       VIEW 2: MAIN DASHBOARD (Prompt Section 11, 13 & 42)
+       ====================================================================== -->
+  <section class="view-section" id="view-dashboard">
+    <div class="container">
+      <div class="dashboard-hero">
+        <div class="badge-tag">Electronic Component Reuse Platform</div>
+        <h1 class="dashboard-title">
+          DISCOVER WHAT YOUR UNUSED ELECTRONICS CAN BECOME
+        </h1>
+        <p class="dashboard-subtitle">
+          Turn unused components into useful project possibilities.
+        </p>
+
+        <!-- Two Major Action Workflows (Section 13) -->
+        <div class="dashboard-major-actions">
+          <button type="button" class="action-card-btn" id="btn-action-have-components">
+            <div class="action-icon">📦</div>
+            <div class="action-heading">I HAVE COMPONENTS</div>
+            <div class="action-subtext">List what you own → Discover matching projects</div>
+          </button>
+
+          <button type="button" class="action-card-btn" id="btn-action-want-to-build">
+            <div class="action-icon">🛠️</div>
+            <div class="action-heading">I WANT TO BUILD</div>
+            <div class="action-subtext">Select a goal project → Check feasibility & shortages</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- MY REUSE IMPACT Section (Prompt Section 41 & 73) -->
+      <div class="impact-section">
+        <div class="section-header-row">
+          <h2 class="section-heading">MY REUSE IMPACT</h2>
+          <span class="section-subheading">Estimated environmental diversion statistics</span>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-metric-card">
+            <div class="impact-label">Components Reused</div>
+            <div class="impact-value" id="stat-components-reused">0</div>
+            <div class="impact-footnote">Active in your listed inventory</div>
+          </div>
+          <div class="impact-metric-card">
+            <div class="impact-label">Projects Saved</div>
+            <div class="impact-value" id="stat-projects-saved">0</div>
+            <div class="impact-footnote">Saved to your maker workspace</div>
+          </div>
+          <div class="impact-metric-card">
+            <div class="impact-label">Projects Enabled</div>
+            <div class="impact-value" id="stat-projects-enabled">0</div>
+            <div class="impact-footnote">100% Ready-to-build matches</div>
+          </div>
+          <div class="impact-metric-card">
+            <div class="impact-label">Estimated Waste Diverted</div>
+            <div class="impact-value" id="stat-waste-avoided">0.0 kg</div>
+            <div class="impact-footnote">Calculated from component weights</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       VIEW 3: "I HAVE COMPONENTS" WORKFLOW (Prompt Section 14 to 32)
+       ====================================================================== -->
+  <section class="view-section" id="view-have-components">
+    <div class="container">
+      <div class="workflow-box">
+        <div class="workflow-header">
+          <h2 class="workflow-title">LIST YOUR COMPONENTS</h2>
+          <p class="workflow-subtitle">
+            Tell us what unused electronics you already have, and we'll find suitable projects.
+          </p>
+        </div>
+
+        <!-- Section 15: Number of components prompt -->
+        <div class="step-count-prompt">
+          <div class="count-prompt-text">
+            How many components do you want to add?
+          </div>
+          <div class="count-input-group">
+            <input type="number" id="input-component-count" class="number-input-field" value="5" min="1" max="25" />
+            <button type="button" class="btn btn-primary" id="btn-continue-component-count">
+              CONTINUE
+            </button>
+          </div>
+        </div>
+
+        <!-- Section 16 & 17: Component Input Rows -->
+        <div id="component-rows-section" style="display: none;">
+          <div class="input-controls-bar">
+            <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+              Component Name &amp; Quantity
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-load-demo-preset" title="Loads standard hackathon kit (Arduino, Servo, Ultrasonic, LED, LDR)">
+                ⚡ Load Demo Preset
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-add-component-row">
+                + Add Row
+              </button>
+              <button type="button" class="btn btn-sm" style="color: #71717a;" id="btn-clear-components">
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <div class="components-input-list" id="components-input-list">
+            <!-- Dynamically populated component rows -->
+          </div>
+
+          <!-- Section 21: User Component Review Table (MY COMPONENTS) -->
+          <div class="review-table-container">
+            <div class="review-table-header">
+              <span class="review-table-title">MY COMPONENTS</span>
+              <span class="badge-tag" id="review-components-count" style="margin-bottom: 0;">0 components</span>
+            </div>
+
+            <div id="review-table-empty" class="empty-state-box" style="margin: 0; padding: 30px; border: none;">
+              <p style="font-size: 13px; color: #71717a;">You haven't added any recognized components yet.</p>
+            </div>
+
+            <div id="review-table-wrapper" style="display: none;">
+              <table class="review-table">
+                <thead>
+                  <tr>
+                    <th>Component Name</th>
+                    <th>Category</th>
+                    <th>Available Quantity</th>
+                  </tr>
+                </thead>
+                <tbody id="review-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Error Alert for Empty Search (Section 93) -->
+          <div id="find-projects-alert" class="alert-box error" style="display: none; margin-top: 20px;"></div>
+
+          <!-- Find Projects Button (Section 21) -->
+          <div style="text-align: center; margin-top: 30px;">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-find-projects" style="min-width: 240px;">
+              FIND PROJECTS
+            </button>
+          </div>
+        </div>
+
+        <!-- Section 29 to 33: Project Recommendations Results -->
+        <div id="results-section" style="display: none; margin-top: 50px;">
+          <div class="results-header-banner">
+            <div>
+              <div class="results-count-title" id="results-count-display">PROJECT RECOMMENDATIONS</div>
+              <div class="results-count-subtitle" id="results-subtitle-display">Ranked by feasibility percentage</div>
+            </div>
+            <div>
+              <button type="button" class="btn btn-outline-dark btn-sm" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                ↑ Edit Components
+              </button>
+            </div>
+          </div>
+
+          <div class="project-recommendations-grid" id="project-cards-container">
+            <!-- Dynamically populated recommendation cards -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       VIEW 4: "I WANT TO BUILD" WORKFLOW (Prompt Section 37, 38 & 39)
+       ====================================================================== -->
+  <section class="view-section" id="view-want-to-build">
+    <div class="container">
+      <div class="workflow-box">
+        <div class="workflow-header">
+          <h2 class="workflow-title">I WANT TO BUILD</h2>
+          <p class="workflow-subtitle">
+            Choose a target project to check your current component inventory and find what you need to build it.
+          </p>
+        </div>
+
+        <!-- Target Project Selector -->
+        <div class="target-project-picker-box">
+          <label for="select-target-project" style="font-size: 14px; font-weight: 700; text-transform: uppercase;">
+            Target Project:
+          </label>
+          <select id="select-target-project" class="select-dropdown">
+            <!-- Dynamically filled with predefined projects -->
+          </select>
+          <button type="button" class="btn btn-primary" id="btn-check-target-project">
+            CHECK MY COMPONENTS
+          </button>
+        </div>
+
+        <div id="target-project-alert" class="alert-box error" style="display: none;"></div>
+
+        <!-- Result Container for Target Project and Alternatives -->
+        <div id="target-project-result-container" style="display: none;">
+          <!-- Dynamically populated comparison result card & alternatives -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       VIEW 5: "MY PROJECTS" (Prompt Section 36 & 63)
+       ====================================================================== -->
+  <section class="view-section" id="view-my-projects">
+    <div class="container">
+      <div class="workflow-box">
+        <div class="workflow-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 class="workflow-title">MY PROJECTS</h2>
+            <p class="workflow-subtitle">Review your saved electronic reuse projects.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm btn-discover-projects">
+            DISCOVER MORE PROJECTS
+          </button>
+        </div>
+
+        <!-- Empty state (Prompt Section 46) -->
+        <div id="saved-projects-empty" class="empty-state-box" style="display: none;">
+          <div class="empty-state-icon">📂</div>
+          <div class="empty-state-title">No projects saved yet.</div>
+          <div class="empty-state-desc">Find matching projects from your component inventory and click "Save Project" to keep them here.</div>
+          <button type="button" class="btn btn-primary btn-discover-projects">
+            DISCOVER PROJECTS
+          </button>
+        </div>
+
+        <!-- Saved Projects Grid -->
+        <div id="saved-projects-list">
+          <!-- Dynamically populated saved projects -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       AUTHENTICATION MODAL (Prompt Section 4 to 10)
+       ====================================================================== -->
+  <div class="modal-overlay" id="auth-modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="auth-modal-title">ACCOUNT ACCESS</h3>
+        <button type="button" class="btn-close-modal" id="btn-close-auth-modal" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Auth Tabs: Login vs Signup -->
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab-btn active" id="tab-btn-login">LOGIN</button>
+          <button type="button" class="auth-tab-btn" id="tab-btn-signup">CREATE ACCOUNT</button>
+        </div>
+
+        <!-- Alert Banner -->
+        <div id="auth-alert-message" class="alert-box" style="display: none;"></div>
+
+        <!-- STEP 1: Email & Name Input -->
+        <div id="auth-step-email">
+          <div class="form-group" id="signup-name-group" style="display: none;">
+            <label class="form-label" for="auth-name-input">Full Name</label>
+            <input type="text" id="auth-name-input" class="form-input" placeholder="e.g. Aravindhan R" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="auth-email-input">Email Address</label>
+            <input type="email" id="auth-email-input" class="form-input" placeholder="e.g. aravindhan@example.com" />
+          </div>
+
+          <button type="button" class="btn btn-primary" id="btn-send-otp" style="width: 100%; margin-top: 10px;">
+            SEND OTP
+          </button>
+        </div>
+
+        <!-- STEP 2: OTP Verification Screen (Prompt Section 9) -->
+        <div id="auth-step-otp" style="display: none;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <h4 style="font-size: 16px; font-weight: 700; text-transform: uppercase;">VERIFY YOUR EMAIL</h4>
+            <p style="font-size: 13px; color: #52525b; margin-top: 6px;">
+              We sent a 6-digit verification code to <strong id="otp-sent-to-email"></strong>
+            </p>
+          </div>
+
+          <!-- 6-Digit OTP Boxes -->
+          <div class="otp-boxes-wrapper">
+            <input type="text" maxlength="1" class="otp-digit-input" data-index="0" autofocus />
+            <input type="text" maxlength="1" class="otp-digit-input" data-index="1" />
+            <input type="text" maxlength="1" class="otp-digit-input" data-index="2" />
+            <input type="text" maxlength="1" class="otp-digit-input" data-index="3" />
+            <input type="text" maxlength="1" class="otp-digit-input" data-index="4" />
+            <input type="text" maxlength="1" class="otp-digit-input" data-index="5" />
+          </div>
+
+          <button type="button" class="btn btn-primary" id="btn-verify-otp" style="width: 100%; margin-bottom: 12px;">
+            VERIFY OTP
+          </button>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-back-to-email">
+              ← Change Email
+            </button>
+            <button type="button" class="btn btn-outline-dark btn-sm" id="btn-resend-otp" disabled>
+              Resend OTP in 30s
+            </button>
+          </div>
+
+          <!-- Dev Mailbox Drawer (For Hackathon Reviewer Convenience when external SMTP is not active) -->
+          <div class="dev-mailbox-preview" id="dev-mailbox-drawer" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span><strong>⚡ Dev Mailbox:</strong> Latest Code: <span id="dev-otp-code-display" style="font-family: monospace; font-size: 14px; font-weight: 800;"></span></span>
+              <button type="button" class="dev-mailbox-toggle" id="btn-fetch-dev-otp">Auto-Fill OTP</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       PROJECT DETAILS MODAL (Prompt Section 34 & 62)
+       ====================================================================== -->
+  <div class="modal-overlay" id="project-modal-overlay">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <div>
+          <span class="badge-tag" id="modal-project-category" style="margin-bottom: 4px;">Category</span>
+          <h3 class="modal-title" id="modal-project-title">PROJECT DETAILS</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-close-project-modal" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <span class="difficulty-badge" id="modal-project-difficulty">Beginner</span>
+          <span class="status-pill ready" id="modal-project-status">● Ready to Build</span>
+        </div>
+
+        <p id="modal-project-desc" style="font-size: 15px; color: #374151; margin-bottom: 20px; line-height: 1.6;"></p>
+
+        <!-- Feasibility bar in modal -->
+        <div class="feasibility-box" style="margin-bottom: 24px;">
+          <div class="feasibility-top-row">
+            <span class="feasibility-text">FEASIBILITY</span>
+            <span class="feasibility-percent" id="modal-project-feasibility">100%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill ready" id="modal-feasibility-bar" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <!-- Overview & Waste Avoidance -->
+        <div style="background-color: #fafafa; border: 1px solid #e4e4e7; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+          <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
+            Working Principle &amp; Concept
+          </h4>
+          <p id="modal-project-overview" style="font-size: 14px; color: #52525b; line-height: 1.5; margin-bottom: 12px;"></p>
+          <div style="font-size: 13px; font-weight: 600; color: #065f46;">
+            🌱 Estimated Electronic Waste Avoided: <span id="modal-project-waste">180 g</span>
+          </div>
+        </div>
+
+        <!-- Component Requirements Breakdown -->
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+            Required Components &amp; Inventory Status
+          </h4>
+          <div id="modal-project-components-list"></div>
+        </div>
+
+        <!-- Step-by-Step Build Overview -->
+        <div>
+          <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+            Build Steps &amp; Circuit Wiring
+          </h4>
+          <ol id="modal-project-steps-list" style="padding-left: 20px;"></ol>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="Projects.closeProjectModal()">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-modal-save-project">SAVE PROJECT</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <strong>REMAKE ELECTRONICS</strong> • Discover what your unused electronics can become.
+      </div>
+      <div>
+        Hackathon PS3 – SECONDLIFE Project Recommendation Platform
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

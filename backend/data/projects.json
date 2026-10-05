@@ -1,0 +1,566 @@
+[
+  {
+    "id": "PROJ_AUTO_DUSTBIN",
+    "name": "Automatic Dustbin",
+    "difficulty": "Beginner",
+    "category": "Automation",
+    "description": "Touchless waste bin that automatically opens its lid when hands or trash approach, using distance sensing and servo rotation.",
+    "estimatedWasteAvoided": 180,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "ULTRASONIC_SENSOR", "name": "Ultrasonic Sensor", "quantity": 1 },
+      { "componentId": "SERVO_MOTOR", "name": "Servo Motor", "quantity": 1 },
+      { "componentId": "LED", "name": "LED", "quantity": 1 }
+    ],
+    "overview": "Reuses common maker parts to build a hygienic touchless lid mechanism. The ultrasonic sensor triggers the servo arm by 90 degrees when an object is detected within 15 cm.",
+    "buildSteps": [
+      "Mount the ultrasonic sensor facing forward on the dustbin lid hinge.",
+      "Attach the servo horn to the lid flapper using a rigid wire arm.",
+      "Wire HC-SR04 Trig to Pin 9, Echo to Pin 10, and Servo signal to Pin 6 on the Arduino.",
+      "Add a 220-ohm current limiting resistor to the LED and connect to Pin 13 as a status indicator.",
+      "Flash the lid actuation firmware with calibrated distance threshold (15cm)."
+    ],
+    "tags": ["touchless", "sanitation", "smart home", "servo"]
+  },
+  {
+    "id": "PROJ_SMART_PARKING",
+    "name": "Smart Parking Indicator",
+    "difficulty": "Intermediate",
+    "category": "Smart Cities",
+    "description": "Monitors parking slot occupancy in real time and alerts drivers using dual IR sensors, visual LEDs, and audible buzzers.",
+    "estimatedWasteAvoided": 140,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "IR_SENSOR", "name": "IR Sensor", "quantity": 2 },
+      { "componentId": "LED", "name": "LED", "quantity": 2 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 }
+    ],
+    "overview": "Deploys paired infrared sensors at bay entrances to identify vehicle presence, lighting green/red status LEDs and beeping if bay is over-occupied.",
+    "buildSteps": [
+      "Position IR Sensor 1 at Bay A and IR Sensor 2 at Bay B facing the vehicle approach path.",
+      "Connect sensor digital outputs to Arduino Pins 2 and 3.",
+      "Wire green LED to Pin 4 (Empty) and red LED to Pin 5 (Occupied).",
+      "Connect the active buzzer to Pin 8 for entry acknowledgment audio chimes.",
+      "Test threshold pots on the IR modules under ambient lighting."
+    ],
+    "tags": ["parking", "transport", "infrared", "indicator"]
+  },
+  {
+    "id": "PROJ_AUTO_NIGHT_LAMP",
+    "name": "Automatic Night Lamp",
+    "difficulty": "Beginner",
+    "category": "Energy",
+    "description": "Energy-conserving lighting fixture that detects ambient darkness and turns on soft illumination automatically.",
+    "estimatedWasteAvoided": 95,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "LDR", "name": "LDR", "quantity": 1 },
+      { "componentId": "LED", "name": "LED", "quantity": 2 },
+      { "componentId": "RESISTOR", "name": "Resistor", "quantity": 1 }
+    ],
+    "overview": "Uses a voltage divider circuit with a light-dependent resistor (LDR) to sample twilight levels and illuminate dual high-efficiency LEDs without manual switching.",
+    "buildSteps": [
+      "Form a voltage divider using the LDR and a 10k resistor connected between 5V and GND.",
+      "Tap the divider midpoint into Arduino Analog Pin A0.",
+      "Connect two LEDs in parallel with current-limiting resistors to digital Pin 11.",
+      "Calibrate the twilight threshold in code to smoothly toggle lights as room light drops.",
+      "Enclose in a frosted diffuser repurposed from plastic packaging."
+    ],
+    "tags": ["night-lamp", "ldr", "energy saving", "beginner"]
+  },
+  {
+    "id": "PROJ_OBSTACLE_DETECTION",
+    "name": "Obstacle Detection System",
+    "difficulty": "Beginner",
+    "category": "Sensors",
+    "description": "Proximity warning module that emits progressive audio and visual pulses as obstacles get dangerously close.",
+    "estimatedWasteAvoided": 130,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "ULTRASONIC_SENSOR", "name": "Ultrasonic Sensor", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 },
+      { "componentId": "LED", "name": "LED", "quantity": 2 }
+    ],
+    "overview": "Measures time-of-flight sound waves. As objects breach the 30cm and 10cm safety envelopes, buzzer frequency and LED blinking speed up.",
+    "buildSteps": [
+      "Connect ultrasonic Trig to Pin 7 and Echo to Pin 8.",
+      "Connect caution LED to Pin 4, critical warning LED to Pin 5.",
+      "Attach buzzer to Pin 6 using PWM frequency output.",
+      "Implement step-wise pulse interval mapping relative to measured distance."
+    ],
+    "tags": ["proximity", "safety", "assistive", "sonar"]
+  },
+  {
+    "id": "PROJ_SMART_DOOR",
+    "name": "Smart Door System",
+    "difficulty": "Intermediate",
+    "category": "Security",
+    "description": "Hands-free automated doorway lock latch that rotates when legitimate human motion is sensed in the entry corridor.",
+    "estimatedWasteAvoided": 210,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "PIR_SENSOR", "name": "PIR Sensor", "quantity": 1 },
+      { "componentId": "SERVO_MOTOR", "name": "Servo Motor", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 }
+    ],
+    "overview": "Detects infrared body heat motion using the PIR sensor. Triggers an entry chime and drives a high-torque servo mechanism to unlatch a cabinet or door.",
+    "buildSteps": [
+      "Mount PIR sensor above eye level to prevent false triggers.",
+      "Connect PIR signal pin to Arduino digital interrupt Pin 2.",
+      "Connect servo control lead to Pin 9 with 5V external power rail.",
+      "Wire buzzer to Pin 7 for lock confirmation feedback.",
+      "Program a 5-second automatic re-latch timer after entry."
+    ],
+    "tags": ["access control", "pir", "servo", "security"]
+  },
+  {
+    "id": "PROJ_AUTO_FAN",
+    "name": "Automatic Fan Controller",
+    "difficulty": "Intermediate",
+    "category": "Automation",
+    "description": "Smart climate controller that reads ambient temperature and drives a cooling fan via relay whenever threshold limits are exceeded.",
+    "estimatedWasteAvoided": 220,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "DHT11", "name": "DHT11", "quantity": 1 },
+      { "componentId": "RELAY_MODULE", "name": "Relay Module", "quantity": 1 },
+      { "componentId": "DC_MOTOR", "name": "DC Motor", "quantity": 1 }
+    ],
+    "overview": "Monitors room heat using the DHT11 sensor. If temperature breaches 28°C, the relay triggers to switch power to an electric fan motor.",
+    "buildSteps": [
+      "Connect DHT11 signal pin to Arduino Pin 4 with a 10k pull-up resistor.",
+      "Connect relay input control pin to Pin 8.",
+      "Route the DC motor positive power rail through the relay Common and Normally Open (NO) terminals.",
+      "Write hysteresis loop logic (turn on at 28°C, shut down at 26°C) to prevent rapid relay fluttering."
+    ],
+    "tags": ["cooling", "temperature", "relay", "energy saving"]
+  },
+  {
+    "id": "PROJ_TEMP_MONITOR",
+    "name": "Temperature Monitoring System",
+    "difficulty": "Beginner",
+    "category": "Monitoring",
+    "description": "Desktop weather monitor that displays real-time ambient temperature and humidity metrics on a crisp alphanumeric display.",
+    "estimatedWasteAvoided": 160,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "DHT11", "name": "DHT11", "quantity": 1 },
+      { "componentId": "LCD_16X2", "name": "LCD 16x2", "quantity": 1 },
+      { "componentId": "RESISTOR", "name": "Resistor", "quantity": 1 }
+    ],
+    "overview": "Continuously polls temperature and humidity, formatting the environmental data into readable Celsius and %RH rows on a standard 1602 LCD.",
+    "buildSteps": [
+      "Connect DHT11 data line to digital Pin 2.",
+      "Wire the LCD 16x2 data bus (or I2C adapter to SDA/SCL Pins A4/A5).",
+      "Add a 220-ohm resistor for LCD backlight power regulation.",
+      "Upload sketch utilizing the LiquidCrystal and DHT sensor libraries.",
+      "Tune refresh rates to update readings once every two seconds."
+    ],
+    "tags": ["weather", "lcd", "environment", "metrics"]
+  },
+  {
+    "id": "PROJ_MOTION_ALARM",
+    "name": "Motion Detection System",
+    "difficulty": "Beginner",
+    "category": "Security",
+    "description": "Perimeter intrusion detector that sounds an alarm and flashes warning lights immediately upon detecting human movement.",
+    "estimatedWasteAvoided": 110,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "PIR_SENSOR", "name": "PIR Sensor", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 },
+      { "componentId": "LED", "name": "LED", "quantity": 1 }
+    ],
+    "overview": "A compact security module designed for doorways, sheds, or workshops to deter unauthorized presence using immediate sensory alerts.",
+    "buildSteps": [
+      "Connect PIR output to Arduino Pin 2.",
+      "Connect alert LED to Pin 12 with a 330 ohm resistor.",
+      "Connect piezo buzzer to Pin 11.",
+      "Write loop code to sound 2kHz alarm beeps whenever the PIR output goes HIGH.",
+      "Mount in an enclosed housing pointing toward entrance paths."
+    ],
+    "tags": ["security", "pir", "alarm", "diy"]
+  },
+  {
+    "id": "PROJ_SMART_LIGHT_CTRL",
+    "name": "Smart Light Controller",
+    "difficulty": "Beginner",
+    "category": "Smart Home",
+    "description": "Dual-mode lighting switch allowing both automated ambient light triggering and manual push-button override.",
+    "estimatedWasteAvoided": 125,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "LDR", "name": "LDR", "quantity": 1 },
+      { "componentId": "RELAY_MODULE", "name": "Relay Module", "quantity": 1 },
+      { "componentId": "PUSH_BUTTON", "name": "Push Button", "quantity": 1 }
+    ],
+    "overview": "Combines an optical sensor with a tactile push button to operate home lighting relays smartly with manual override options.",
+    "buildSteps": [
+      "Wire LDR voltage divider to Analog Pin A1.",
+      "Wire momentary push button to digital Pin 3 with internal pull-up.",
+      "Connect relay trigger terminal to digital Pin 7.",
+      "Program state machine with Auto/Manual toggle mode."
+    ],
+    "tags": ["lighting", "relay", "smart home"]
+  },
+  {
+    "id": "PROJ_DIGITAL_NOTICE_BOARD",
+    "name": "Digital Notice Board",
+    "difficulty": "Intermediate",
+    "category": "Education",
+    "description": "Programmable digital signage device that cycles announcements, alerts, and schedules via push button controls.",
+    "estimatedWasteAvoided": 175,
+    "components": [
+      { "componentId": "ESP32", "name": "ESP32", "quantity": 1 },
+      { "componentId": "LCD_16X2", "name": "LCD 16x2", "quantity": 1 },
+      { "componentId": "PUSH_BUTTON", "name": "Push Button", "quantity": 2 },
+      { "componentId": "RESISTOR", "name": "Resistor", "quantity": 2 }
+    ],
+    "overview": "Employs an ESP32 microcontroller with an alphanumeric display to serve campus or workspace bulletin notifications with paginated navigation.",
+    "buildSteps": [
+      "Connect LCD 16x2 via I2C to ESP32 Pins 21 (SDA) and 22 (SCL).",
+      "Connect Next and Prev buttons to Pins 18 and 19 with pull-down resistors.",
+      "Store notice messages in flash memory array.",
+      "Display messages with horizontal scrolling effect."
+    ],
+    "tags": ["esp32", "display", "notice-board", "campus"]
+  },
+  {
+    "id": "PROJ_WATER_LEVEL",
+    "name": "Water Level Indicator",
+    "difficulty": "Beginner",
+    "category": "Environment",
+    "description": "Overhead tank water monitor that prevents overflow and wastage using multi-stage LED depth bars and an alert buzzer.",
+    "estimatedWasteAvoided": 150,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "ULTRASONIC_SENSOR", "name": "Ultrasonic Sensor", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 },
+      { "componentId": "LED", "name": "LED", "quantity": 3 },
+      { "componentId": "RESISTOR", "name": "Resistor", "quantity": 3 }
+    ],
+    "overview": "Non-contact acoustic liquid measurement. Gauges distance to the water surface, mapping level to Low (Green), Medium (Yellow), and Full (Red + Buzzer).",
+    "buildSteps": [
+      "Suspend the ultrasonic sensor on top of the reservoir pointing downward.",
+      "Wire green LED to Pin 2, yellow LED to Pin 3, red LED to Pin 4 with resistors.",
+      "Connect buzzer to Pin 5 for overflow prevention warning.",
+      "Calibrate full and empty tank depth in centimetres."
+    ],
+    "tags": ["water", "conservation", "ultrasonic", "environment"]
+  },
+  {
+    "id": "PROJ_RFID_ATTENDANCE",
+    "name": "RFID Attendance Prototype",
+    "difficulty": "Advanced",
+    "category": "Education",
+    "description": "Contactless identification system that reads student or employee RFID cards, logs entry, and provides visual confirmation.",
+    "estimatedWasteAvoided": 190,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "RFID_MODULE", "name": "RFID Module", "quantity": 1 },
+      { "componentId": "LCD_16X2", "name": "LCD 16x2", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 }
+    ],
+    "overview": "Interrogates 13.56 MHz RFID tags using the SPI protocol. Displays the registered card holder's name and rings a positive acknowledgment chime.",
+    "buildSteps": [
+      "Wire RC522 RFID reader to Arduino SPI pins (SCK 13, MISO 12, MOSI 11, SS 10, RST 9).",
+      "Connect LCD 16x2 via I2C to pins A4 and A5.",
+      "Wire buzzer to digital Pin 6 for tap audio feedback.",
+      "Program authorization lookup table containing valid UID hex strings."
+    ],
+    "tags": ["rfid", "identification", "smart school", "spi"]
+  },
+  {
+    "id": "PROJ_SMART_PARKING_GATE",
+    "name": "Smart Parking System",
+    "difficulty": "Intermediate",
+    "category": "Smart Cities",
+    "description": "Automated parking boom barrier that detects approaching vehicles, checks remaining space, and operates a servo gate.",
+    "estimatedWasteAvoided": 230,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "IR_SENSOR", "name": "IR Sensor", "quantity": 2 },
+      { "componentId": "SERVO_MOTOR", "name": "Servo Motor", "quantity": 1 },
+      { "componentId": "LCD_16X2", "name": "LCD 16x2", "quantity": 1 }
+    ],
+    "overview": "Coordinates entry and exit IR beams to tally occupied spots and swing a boom barrier servo when capacity is available.",
+    "buildSteps": [
+      "Place IR Sensor 1 at entrance barrier, IR Sensor 2 at exit barrier.",
+      "Connect servo arm acting as boom gate to Pin 9.",
+      "Connect LCD display to report Available Slots counter.",
+      "Increment and decrement count dynamically based on tripped sensors."
+    ],
+    "tags": ["parking", "servo", "barrier", "smart city"]
+  },
+  {
+    "id": "PROJ_LINE_ROBOT",
+    "name": "Line Detection Robot electronics module project",
+    "difficulty": "Intermediate",
+    "category": "Robotics",
+    "description": "Autonomous tracking core that processes dual ground IR reflections to steer differential drive DC motors along a contrast path.",
+    "estimatedWasteAvoided": 280,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "IR_SENSOR", "name": "IR Sensor", "quantity": 2 },
+      { "componentId": "MOTOR_DRIVER", "name": "Motor Driver", "quantity": 1 },
+      { "componentId": "DC_MOTOR", "name": "DC Motor", "quantity": 2 }
+    ],
+    "overview": "Core robotics navigation controller. Reads left and right black line reflectance and modulates PWM speeds to left and right drive motors.",
+    "buildSteps": [
+      "Mount dual IR sensors 1cm above track surface spaced 2cm apart.",
+      "Connect sensor outputs to Pins A0 and A1.",
+      "Connect motor driver inputs (IN1-IN4) to Pins 5, 6, 9, 10.",
+      "Hook up left and right DC drive motors to driver output terminals.",
+      "Implement proportional steering control algorithm."
+    ],
+    "tags": ["robotics", "line follower", "motors", "driver"]
+  },
+  {
+    "id": "PROJ_HOME_AUTOMATION",
+    "name": "Home Automation Prototype",
+    "difficulty": "Intermediate",
+    "category": "Smart Home",
+    "description": "Wireless appliance switcher that pairs with smartphones over Bluetooth to control dual electrical loads remotely.",
+    "estimatedWasteAvoided": 205,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "BLUETOOTH_MODULE", "name": "Bluetooth Module", "quantity": 1 },
+      { "componentId": "RELAY_MODULE", "name": "Relay Module", "quantity": 2 },
+      { "componentId": "LED", "name": "LED", "quantity": 2 }
+    ],
+    "overview": "Listens for serial commands from a paired mobile phone terminal to toggle lighting relays and indicator LEDs safely.",
+    "buildSteps": [
+      "Connect HC-05 TX to Arduino RX (Pin 0) and HC-05 RX via resistor divider to TX (Pin 1).",
+      "Connect Relay 1 to Pin 7, Relay 2 to Pin 8.",
+      "Add status LEDs on Pins 12 and 13.",
+      "Parse incoming ASCII characters ('A' for on, 'a' for off) in serial handler."
+    ],
+    "tags": ["bluetooth", "iot", "smart home", "relay"]
+  },
+  {
+    "id": "PROJ_WEATHER_MONITOR",
+    "name": "Weather Monitoring Prototype",
+    "difficulty": "Intermediate",
+    "category": "IoT",
+    "description": "Compact micro-climate station utilizing an ESP8266 and precision DHT22 sensor to display barometric comfort levels on a sharp OLED screen.",
+    "estimatedWasteAvoided": 145,
+    "components": [
+      { "componentId": "ESP8266", "name": "ESP8266", "quantity": 1 },
+      { "componentId": "DHT22", "name": "DHT22", "quantity": 1 },
+      { "componentId": "OLED_DISPLAY", "name": "OLED Display", "quantity": 1 },
+      { "componentId": "RESISTOR", "name": "Resistor", "quantity": 1 }
+    ],
+    "overview": "Compact environmental telemetry unit suited for balconies or greenhouses. Draws live readings with temperature, humidity, and heat index curves.",
+    "buildSteps": [
+      "Connect SSD1306 OLED display via I2C (D1 = SCL, D2 = SDA).",
+      "Connect DHT22 data pin to D4 with a 4.7k pull-up resistor.",
+      "Program Adafruit SSD1306 and DHT libraries on the ESP8266.",
+      "Render sleek graphic temperature gauge on the OLED."
+    ],
+    "tags": ["weather", "esp8266", "oled", "iot"]
+  },
+  {
+    "id": "PROJ_SMART_ENERGY_MONITOR",
+    "name": "Smart Energy Monitor",
+    "difficulty": "Advanced",
+    "category": "Energy",
+    "description": "Intelligent power socket monitor that tracks run-time hours and lets users switch appliance relay power via push button.",
+    "estimatedWasteAvoided": 215,
+    "components": [
+      { "componentId": "ESP32", "name": "ESP32", "quantity": 1 },
+      { "componentId": "OLED_DISPLAY", "name": "OLED Display", "quantity": 1 },
+      { "componentId": "RELAY_MODULE", "name": "Relay Module", "quantity": 1 },
+      { "componentId": "PUSH_BUTTON", "name": "Push Button", "quantity": 1 }
+    ],
+    "overview": "Measures continuous device operation cycles and provides scheduled power cut-off to reduce vampire electronics power draw.",
+    "buildSteps": [
+      "Connect 0.96 inch I2C OLED to ESP32 GPIO 21 and 22.",
+      "Connect relay trigger input to GPIO 15.",
+      "Wire tactile pushbutton to GPIO 4 configured with internal pull-up.",
+      "Display power state, active timer, and estimated watt-hours diverted."
+    ],
+    "tags": ["energy", "esp32", "relay", "power savings"]
+  },
+  {
+    "id": "PROJ_MINI_SECURITY",
+    "name": "Mini Security System",
+    "difficulty": "Intermediate",
+    "category": "Security",
+    "description": "Keypad-armed safe box lock system with ultrasonic tripwire sensing and alarm sounding on invalid attempts.",
+    "estimatedWasteAvoided": 190,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "ULTRASONIC_SENSOR", "name": "Ultrasonic Sensor", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 },
+      { "componentId": "KEYPAD", "name": "Keypad", "quantity": 1 }
+    ],
+    "overview": "An electronic lockbox alarm that requires a 4-digit PIN code on the keypad to disarm before reaching inside the ultrasonic perimeter.",
+    "buildSteps": [
+      "Wire 4x4 matrix keypad rows and columns to Arduino Pins 2 through 9.",
+      "Connect ultrasonic sensor to Pins 10 and 11.",
+      "Connect alarm buzzer to Pin 12.",
+      "Program arm/disarm passcode verification logic."
+    ],
+    "tags": ["keypad", "security", "vault", "code"]
+  },
+  {
+    "id": "PROJ_PLANT_WATERING",
+    "name": "Smart Plant Watering Controller",
+    "difficulty": "Intermediate",
+    "category": "Environment",
+    "description": "Automated plant irrigation controller that measures soil dryness and dispenses water through a relay-switched pump.",
+    "estimatedWasteAvoided": 240,
+    "components": [
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "SOIL_MOISTURE_SENSOR", "name": "Soil Moisture Sensor", "quantity": 1 },
+      { "componentId": "RELAY_MODULE", "name": "Relay Module", "quantity": 1 },
+      { "componentId": "DC_MOTOR", "name": "DC Motor", "quantity": 1 }
+    ],
+    "overview": "Prevents overwatering and plant drought. Probes soil conductivity and triggers a 5V submersible water pump when moisture drops below 35%.",
+    "buildSteps": [
+      "Insert soil moisture sensor probes into plant pot root zone.",
+      "Connect analog sensor pin to Arduino A0.",
+      "Connect relay signal to Pin 7.",
+      "Power 5V mini DC pump through the relay contact.",
+      "Set calibration watering intervals to avoid water pooling."
+    ],
+    "tags": ["irrigation", "soil", "automation", "plants"]
+  },
+  {
+    "id": "PROJ_MMWAVE_PRESENCE",
+    "name": "mmWave Radar Smart Presence & Energy Controller",
+    "difficulty": "Intermediate",
+    "category": "Smart Home",
+    "description": "State-of-the-art human presence monitor that detects stationary breathing and micro-motion through 24GHz radar to automate room energy.",
+    "estimatedWasteAvoided": 195,
+    "components": [
+      { "componentId": "MMWAVE_RADAR_SENSOR", "name": "mmWave Radar Sensor", "quantity": 1 },
+      { "componentId": "ESP32", "name": "ESP32", "quantity": 1 },
+      { "componentId": "RELAY_MODULE", "name": "Relay Module", "quantity": 1 },
+      { "componentId": "LED", "name": "LED", "quantity": 1 }
+    ],
+    "overview": "Unlike PIR sensors that require walking movement, this 24GHz radar sensor detects stationary occupants even while sitting or sleeping, eliminating false light shutoffs.",
+    "buildSteps": [
+      "Connect mmWave radar sensor UART TX/RX pins to ESP32 GPIO 16 and 17.",
+      "Wire 5V relay control line to GPIO 23 to switch room lighting.",
+      "Connect indicator status LED to GPIO 2 with current-limiting resistor.",
+      "Configure radar distance gates (0.75m to 4.5m) and sensitivity thresholds.",
+      "Upload logic to hold relay active during detected micro-motion presence."
+    ],
+    "tags": ["radar", "mmwave", "presence", "motion", "energy", "smart home", "lighting", "human detection"]
+  },
+  {
+    "id": "PROJ_MMWAVE_INTRUSION",
+    "name": "mmWave Radar Perimeter Security Sentry",
+    "difficulty": "Intermediate",
+    "category": "Security",
+    "description": "Through-wall perimeter intrusion sentry that measures intruder distance and approach velocity using microwave radar.",
+    "estimatedWasteAvoided": 210,
+    "components": [
+      { "componentId": "MMWAVE_RADAR_SENSOR", "name": "mmWave Radar Sensor", "quantity": 1 },
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 },
+      { "componentId": "OLED_DISPLAY", "name": "OLED Display", "quantity": 1 }
+    ],
+    "overview": "Invisible motion tripwire that operates through non-metallic enclosures and darkness, showing exact target distance and sounding directional alarms.",
+    "buildSteps": [
+      "Connect mmWave radar sensor output pin or UART to Arduino Pins 2 and 3.",
+      "Wire OLED display via I2C to Analog Pins A4 (SDA) and A5 (SCL).",
+      "Connect alert piezo buzzer to PWM Pin 9.",
+      "Display real-time intruder distance meter on the OLED display.",
+      "Sound progressive frequency alarms when intruder enters within 2 meters."
+    ],
+    "tags": ["radar", "security", "perimeter", "mmwave", "alarm", "intruder", "sentry", "distance"]
+  },
+  {
+    "id": "PROJ_LORA_FARM",
+    "name": "LoRa Long-Range Agricultural Soil & Weather Station",
+    "difficulty": "Intermediate",
+    "category": "Environment",
+    "description": "Off-grid telemetry node that broadcasts soil moisture, temperature, and humidity up to 10 kilometers over sub-gigahertz LoRa radio.",
+    "estimatedWasteAvoided": 225,
+    "components": [
+      { "componentId": "LORA_MODULE", "name": "LoRa Module", "quantity": 1 },
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "SOIL_MOISTURE_SENSOR", "name": "Soil Moisture Sensor", "quantity": 1 },
+      { "componentId": "DHT22", "name": "DHT22", "quantity": 1 }
+    ],
+    "overview": "Enables smart farming across large acreage without cellular or Wi-Fi fees. Samples soil hygrometry and broadcasts encrypted telemetry packets every 15 minutes.",
+    "buildSteps": [
+      "Wire LoRa SX1278 SPI bus (MISO 12, MOSI 11, SCK 13, NSS 10, DIO0 2) to Arduino.",
+      "Connect soil moisture sensor to Analog Pin A0.",
+      "Connect DHT22 temperature and humidity sensor to Digital Pin 4.",
+      "Flash LoRa packet transmission firmware configured to 433MHz or 868MHz.",
+      "Deploy in weatherproof housing with power optimization sleep cycles."
+    ],
+    "tags": ["lora", "wireless", "agriculture", "soil", "long range", "farm", "weather", "telemetry"]
+  },
+  {
+    "id": "PROJ_LORA_TRACKER",
+    "name": "LoRa Off-Grid Emergency GPS Locator",
+    "difficulty": "Advanced",
+    "category": "Security",
+    "description": "Off-grid wearable survival beacon that acquires satellite coordinates and transmits SOS location packets over long-range LoRa radio.",
+    "estimatedWasteAvoided": 215,
+    "components": [
+      { "componentId": "LORA_MODULE", "name": "LoRa Module", "quantity": 1 },
+      { "componentId": "ESP32", "name": "ESP32", "quantity": 1 },
+      { "componentId": "GPS_MODULE", "name": "GPS Module", "quantity": 1 },
+      { "componentId": "OLED_DISPLAY", "name": "OLED Display", "quantity": 1 }
+    ],
+    "overview": "Provides vital emergency locating in wilderness or disaster zones where cellular towers fail, transmitting GPS coordinates over kilometres.",
+    "buildSteps": [
+      "Connect NEO-6M GPS serial output (TX/RX) to ESP32 Serial2 (GPIO 16/17).",
+      "Wire LoRa module via SPI to ESP32 (MOSI 23, MISO 19, SCK 18, CS 5, DIO0 26).",
+      "Connect I2C OLED display to GPIO 21 and 22.",
+      "Parse NMEA GPS location sentences and package latitude/longitude into compact binary packets.",
+      "Transmit periodic beacon and display local satellite lock status on OLED."
+    ],
+    "tags": ["lora", "gps", "tracker", "emergency", "off-grid", "wireless", "sos", "location"]
+  },
+  {
+    "id": "PROJ_LORA_HOME_GATEWAY",
+    "name": "LoRa Smart Home Central Receiver Gateway",
+    "difficulty": "Intermediate",
+    "category": "Smart Home",
+    "description": "Central receiver hub that collects telemetry from remote outdoor LoRa sensors and triggers home automation relays.",
+    "estimatedWasteAvoided": 235,
+    "components": [
+      { "componentId": "LORA_MODULE", "name": "LoRa Module", "quantity": 1 },
+      { "componentId": "ESP32", "name": "ESP32", "quantity": 1 },
+      { "componentId": "LCD_16X2", "name": "LCD 16x2", "quantity": 1 },
+      { "componentId": "RELAY_MODULE", "name": "Relay Module", "quantity": 1 }
+    ],
+    "overview": "Acts as the base station in a home network, receiving sensor packets from remote nodes and displaying status or driving power switches.",
+    "buildSteps": [
+      "Connect LoRa receiver module to ESP32 SPI bus.",
+      "Connect LCD 16x2 over I2C to display real-time incoming packet data.",
+      "Connect relay switch to GPIO 15 to control home loads based on remote triggers.",
+      "Implement packet validation, RSSI signal strength tracking, and relay actuation."
+    ],
+    "tags": ["lora", "gateway", "smart home", "receiver", "wireless", "iot", "automation"]
+  },
+  {
+    "id": "PROJ_RADAR_DOPPLER_SPEED",
+    "name": "Microwave Radar Speed & Motion Detector",
+    "difficulty": "Intermediate",
+    "category": "Sensors",
+    "description": "Doppler radar speedometer that calculates approaching target velocity and displays speed metrics on a digital readout.",
+    "estimatedWasteAvoided": 170,
+    "components": [
+      { "componentId": "MMWAVE_RADAR_SENSOR", "name": "mmWave Radar Sensor", "quantity": 1 },
+      { "componentId": "ARDUINO_UNO", "name": "Arduino Uno", "quantity": 1 },
+      { "componentId": "SEVEN_SEGMENT_DISPLAY", "name": "7 Segment Display", "quantity": 1 },
+      { "componentId": "BUZZER", "name": "Buzzer", "quantity": 1 }
+    ],
+    "overview": "Calculates speed by measuring frequency shift in reflected microwave radar signals, beeping and flashing when speed limits are exceeded.",
+    "buildSteps": [
+      "Connect microwave radar sensor analog frequency output or serial to Arduino.",
+      "Wire TM1637 4-digit 7-segment display to digital Pins 4 (CLK) and 5 (DIO).",
+      "Connect warning buzzer to Pin 8.",
+      "Compute target velocity in km/h from Doppler frequency formula.",
+      "Display live velocity and trigger audio chirp on rapid acceleration."
+    ],
+    "tags": ["radar", "speed", "doppler", "velocity", "traffic", "mmwave", "motion"]
+  }
+]

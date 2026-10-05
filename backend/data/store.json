@@ -1,0 +1,138 @@
+{
+  "users": [
+    {
+      "id": "usr_demo_101",
+      "name": "Aravindhan R",
+      "email": "aravindhan@example.com",
+      "createdAt": "2026-10-05T13:42:54.507Z",
+      "savedProjects": [
+        "PROJ_AUTO_DUSTBIN",
+        "PROJ_AUTO_NIGHT_LAMP"
+      ]
+    },
+    {
+      "id": "usr_1791207800660_mngy4",
+      "name": "Aravindhan R",
+      "email": "aravindhan_1791207800592@example.com",
+      "createdAt": "2026-10-05T13:43:20.660Z",
+      "savedProjects": [
+        "PROJ_AUTO_DUSTBIN"
+      ]
+    },
+    {
+      "id": "usr_1791215561789_fics6",
+      "name": "aravindhan",
+      "email": "aravindhan1757@gmail.com",
+      "createdAt": "2026-10-05T15:52:41.789Z",
+      "savedProjects": []
+    }
+  ],
+  "userInventories": {
+    "usr_demo_101": [
+      {
+        "componentId": "ARDUINO_UNO",
+        "name": "Arduino Uno",
+        "quantity": 1
+      },
+      {
+        "componentId": "SERVO_MOTOR",
+        "name": "Servo Motor",
+        "quantity": 2
+      },
+      {
+        "componentId": "ULTRASONIC_SENSOR",
+        "name": "Ultrasonic Sensor",
+        "quantity": 1
+      },
+      {
+        "componentId": "LED",
+        "name": "LED",
+        "quantity": 5
+      },
+      {
+        "componentId": "LDR",
+        "name": "LDR",
+        "quantity": 2
+      }
+    ],
+    "usr_1791207800660_mngy4": [
+      {
+        "name": "Arduino Uno",
+        "quantity": 1
+      },
+      {
+        "name": "Servo Motor",
+        "quantity": 2
+      },
+      {
+        "name": "Ultrasonic Sensor",
+        "quantity": 1
+      },
+      {
+        "name": "LED",
+        "quantity": 5
+      },
+      {
+        "name": "LDR",
+        "quantity": 2
+      }
+    ],
+    "usr_1791215561789_fics6": [
+      {
+        "componentId": "BREADBOARD",
+        "name": "Breadboard",
+        "quantity": 1,
+        "category": "Prototyping"
+      },
+      {
+        "componentId": "ULTRASONIC_SENSOR",
+        "name": "Ultrasonic Sensor",
+        "quantity": 1,
+        "category": "Sensors"
+      },
+      {
+        "componentId": "PIR_SENSOR",
+        "name": "PIR Sensor",
+        "quantity": 1,
+        "category": "Sensors"
+      }
+    ]
+  },
+  "sessions": {
+    "a5d245d0d217c55034473d4a167c35db597f7b8868601bafdc05ec29aeabb47e": {
+      "token": "a5d245d0d217c55034473d4a167c35db597f7b8868601bafdc05ec29aeabb47e",
+      "userId": "usr_1791207800660_mngy4",
+      "email": "aravindhan_1791207800592@example.com",
+      "expiresAt": 1791812600661
+    },
+    "071cb7571367cb464967be3b9341d7aca9ffcf72c9f72e05b5d42d15b381ac28": {
+      "token": "071cb7571367cb464967be3b9341d7aca9ffcf72c9f72e05b5d42d15b381ac28",
+      "userId": "usr_1791215561789_fics6",
+      "email": "aravindhan1757@gmail.com",
+      "expiresAt": 1791820361791
+    },
+    "c0b9ec6d16860a2740bd79df9346b62e71b4d5a1ad7e424a895723ef63ac536d": {
+      "token": "c0b9ec6d16860a2740bd79df9346b62e71b4d5a1ad7e424a895723ef63ac536d",
+      "userId": "usr_1791215561789_fics6",
+      "email": "aravindhan1757@gmail.com",
+      "expiresAt": 1791821065469
+    }
+  },
+  "otpStore": {},
+  "rateLimits": {
+    "aravindhan_1791207800592@example.com": {
+      "requestTimestamps": [
+        1791207800610
+      ],
+      "lastRequest": 1791207800610
+    },
+    "aravindhan1757@gmail.com": {
+      "requestTimestamps": [
+        1791215501947,
+        1791216198620,
+        1791216253347
+      ],
+      "lastRequest": 1791216253347
+    }
+  }
+}
